@@ -24,7 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import packageJson from './package.json';
+import packageJson from './devops.json';
 
 const App: () => React$Node = () => {
   return (
