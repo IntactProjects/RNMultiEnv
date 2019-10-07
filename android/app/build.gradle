@@ -78,6 +78,8 @@ import com.android.build.OutputFile
 project.ext.react = [
     entryFile: "index.js",
     enableHermes: false,  // clean and rebuild if changing
+    bundleInStaging: true,
+    devDisabledInStaging: true,
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -159,6 +161,7 @@ android {
         staging {
             //https://stackoverflow.com/questions/41771892/react-native-app-wont-start-when-using-applicationidsuffix
             //applicationIdSuffix ".staging"
+            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
