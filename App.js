@@ -24,7 +24,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import packageJson from './devops.json';
+import devopsJson from './devops.json';
 
 const App: () => React$Node = () => {
   return (
@@ -44,7 +44,7 @@ const App: () => React$Node = () => {
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>BACKEND_URL</Text>
               <Text style={styles.sectionDescription}>
-                {packageJson["devops"]["BACKEND_URL"]}
+                {devopsJson["BACKEND_URL"]}
               </Text>
             </View>
             <View style={styles.sectionContainer}>
