@@ -18,7 +18,7 @@ then
 fi
 
 echo "Choosing devops.json"
-mv $APPCENTER_SOURCE_DIRECTORY/devops.$DEVOPS_SOURCE_FILENAME.json $APPCENTER_SOURCE_DIRECTORY/devops.json
+mv $APPCENTER_SOURCE_DIRECTORY/$DEVOPS_SOURCE_FILENAME $APPCENTER_SOURCE_DIRECTORY/devops.json
 
 echo "Updated devops.json"
 cat $APPCENTER_SOURCE_DIRECTORY/devops.json
