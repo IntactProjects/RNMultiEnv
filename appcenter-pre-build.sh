@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 
-# Example: Change bundle name of an iOS app for non-production
+PROJECT_NAME=RNMultiEnv
+INFO_PLIST_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/$PROJECT_NAME/Info.plist
+
 if [ "$APPCENTER_BRANCH" == "master" ];
 then
-    plutil -replace CFBundleName -string "\$(PRODUCT_NAME) Staging" $APPCENTER_SOURCE_DIRECTORY/ios/RNMultiEnv/Info.plist
+    echo "Updating CFBundleDisplayName in Info.plist"
+    plutil -replace CFBundleDisplayName -string "\$(PRODUCT_NAME) Staging" $INFO_PLIST_FILE
+
+    echo "File content:"
+    cat $INFO_PLIST_FILE
+
+    echo "Updating Build configuration"
+    sed -i -e 's/buildConfiguration = "Release"/buildConfiguration = "Staging"/g' $APPCENTER_SOURCE_DIRECTORY/ios/$PROJECT_NAME.xcodeproj/xcshareddata/xcschemes/RNMultiEnv.xcscheme
 fi
