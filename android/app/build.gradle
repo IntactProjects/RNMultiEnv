@@ -161,7 +161,6 @@ android {
         staging {
             //https://stackoverflow.com/questions/41771892/react-native-app-wont-start-when-using-applicationidsuffix
             //applicationIdSuffix ".staging"
-            signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
