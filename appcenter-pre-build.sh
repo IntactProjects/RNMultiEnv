@@ -6,7 +6,7 @@ INFO_PLIST_FILE=$APPCENTER_SOURCE_DIRECTORY/ios/$PROJECT_NAME/Info.plist
 if [ "$APPCENTER_BRANCH" == "master" ];
 then
     DEVOPS_SOURCE_FILENAME=devops.staging.json
-    BUNDLE_DISPLAY_NAME_SUFFIX= Staging
+    BUNDLE_DISPLAY_NAME_SUFFIX=Staging
     BUILD_CONFIGURATION_NAME=Staging
 fi
 
@@ -26,7 +26,7 @@ cat $APPCENTER_SOURCE_DIRECTORY/devops.json
 
 # iOS: Update the iOS app name
 echo "Updating CFBundleDisplayName in Info.plist"
-plutil -replace CFBundleDisplayName -string "\$(PRODUCT_NAME)$BUNDLE_DISPLAY_NAME_SUFFIX" $INFO_PLIST_FILE
+plutil -replace CFBundleDisplayName -string "\$(PRODUCT_NAME) $BUNDLE_DISPLAY_NAME_SUFFIX" $INFO_PLIST_FILE
 
 echo "Updated Info.plist:"
 cat $INFO_PLIST_FILE
